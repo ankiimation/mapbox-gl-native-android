@@ -13,30 +13,28 @@ class MapChangeReceiver implements NativeMapView.StateCallback {
   private final List<MapView.OnCameraIsChangingListener> onCameraIsChangingListenerList = new CopyOnWriteArrayList<>();
   private final List<MapView.OnCameraDidChangeListener> onCameraDidChangeListenerList = new CopyOnWriteArrayList<>();
   private final List<MapView.OnWillStartLoadingMapListener> onWillStartLoadingMapListenerList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnDidFinishLoadingMapListener> onDidFinishLoadingMapListenerList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnDidFailLoadingMapListener> onDidFailLoadingMapListenerList
-    = new CopyOnWriteArrayList<>();
-  private final List<MapView.OnDidFailLoadingTileListener> onDidFailLoadingTileListenerList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnWillStartRenderingFrameListener> onWillStartRenderingFrameList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnDidFinishRenderingFrameListener> onDidFinishRenderingFrameList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnWillStartRenderingMapListener> onWillStartRenderingMapListenerList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnDidFinishRenderingMapListener> onDidFinishRenderingMapListenerList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnDidBecomeIdleListener> onDidBecomeIdleListenerList
-      = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnDidFinishLoadingStyleListener> onDidFinishLoadingStyleListenerList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnSourceChangedListener> onSourceChangedListenerList = new CopyOnWriteArrayList<>();
   private final List<MapView.OnStyleImageMissingListener> onStyleImageMissingListenerList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
   private final List<MapView.OnCanRemoveUnusedStyleImageListener> onCanRemoveUnusedStyleImageListenerList
-    = new CopyOnWriteArrayList<>();
+          = new CopyOnWriteArrayList<>();
 
   @Override
   public void onCameraWillChange(boolean animated) {
@@ -124,16 +122,7 @@ class MapChangeReceiver implements NativeMapView.StateCallback {
 
   @Override
   public void onDidFailLoadingTile(String error) {
-    try {
-      if (!onDidFailLoadingTileListenerList.isEmpty()) {
-        for (MapView.OnDidFailLoadingTileListener onDidFailLoadingTileListener : onDidFailLoadingTileListenerList) {
-          onDidFailLoadingTileListener.onDidFailLoadingTile(error);
-        }
-      }
-    } catch (Throwable err) {
-      Logger.e(TAG, "Exception in onDidFailLoadingTile", err);
-      throw err;
-    }
+
   }
 
   @Override
@@ -319,14 +308,6 @@ class MapChangeReceiver implements NativeMapView.StateCallback {
     onDidFailLoadingMapListenerList.remove(listener);
   }
 
-  void addOnDidFailLoadingTileListener(MapView.OnDidFailLoadingTileListener listener) {
-    onDidFailLoadingTileListenerList.add(listener);
-  }
-
-  void removeOnDidFailLoadingTileListener(MapView.OnDidFailLoadingTileListener listener) {
-    onDidFailLoadingTileListenerList.remove(listener);
-  }
-
   void addOnWillStartRenderingFrameListener(MapView.OnWillStartRenderingFrameListener listener) {
     onWillStartRenderingFrameList.add(listener);
   }
@@ -406,7 +387,6 @@ class MapChangeReceiver implements NativeMapView.StateCallback {
     onWillStartLoadingMapListenerList.clear();
     onDidFinishLoadingMapListenerList.clear();
     onDidFailLoadingMapListenerList.clear();
-    onDidFailLoadingTileListenerList.clear();
     onWillStartRenderingFrameList.clear();
     onDidFinishRenderingFrameList.clear();
     onWillStartRenderingMapListenerList.clear();

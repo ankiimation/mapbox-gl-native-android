@@ -11,7 +11,7 @@ buildscript {
             }
             credentials {
                 username "mapbox"
-                password = project.hasProperty('SDK_REGISTRY_TOKEN') ? project.property('SDK_REGISTRY_TOKEN') : System.getenv('SDK_REGISTRY_TOKEN')
+                password = "sk.eyJ1IjoidmlldG1hcC1kZXZlbG9wZXIiLCJhIjoiY2xjdmlwMnlmMTUzeDNvbXgxMnkxeWN2aiJ9.h_mY-qPYg6p0nnAQlf7NDQ"
             }
         }
     }
@@ -38,7 +38,7 @@ allprojects {
             }
             credentials {
                 username "mapbox"
-                password = project.hasProperty('SDK_REGISTRY_TOKEN') ? project.property('SDK_REGISTRY_TOKEN') : System.getenv('SDK_REGISTRY_TOKEN')
+                password = "sk.eyJ1IjoidmlldG1hcC1kZXZlbG9wZXIiLCJhIjoiY2xjdmlwMnlmMTUzeDNvbXgxMnkxeWN2aiJ9.h_mY-qPYg6p0nnAQlf7NDQ"
             }
         }
     }
